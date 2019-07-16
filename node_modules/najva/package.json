@@ -1,0 +1,45 @@
+{
+  "_from": "najva",
+  "_id": "najva@1.0.14",
+  "_inBundle": false,
+  "_integrity": "sha512-mIeji+7gwt/2zD2lXZRvGWo2I2xiKeAFFTGddzsuMv7TUmfENSYw/zLyFJSEZbCjvA21JQeHRXDfV61Om8KiTg==",
+  "_location": "/najva",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "najva",
+    "name": "najva",
+    "escapedName": "najva",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/najva/-/najva-1.0.14.tgz",
+  "_shasum": "01f4c6fe3773719dfa2fd05d9e9b9f6601e77811",
+  "_spec": "najva",
+  "_where": "/home/shayan/Najva/cordova/sample",
+  "author": {
+    "name": "yektanet"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "najva",
+    "platforms": [
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "Plugin for using najvaSDK in cordova (just for android).",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "license": "MIT License (MIT)",
+  "name": "najva",
+  "version": "1.0.14"
+}

@@ -1,0 +1,10 @@
+{
+  "najva": {
+    "source": {
+      "type": "registry",
+      "id": "najva"
+    },
+    "is_top_level": true,
+    "variables": {}
+  }
+}
