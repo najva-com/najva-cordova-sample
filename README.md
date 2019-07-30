@@ -1,5 +1,5 @@
 # najva Cordova Application
-This is a Ionic application that Najva_cordova_plugin implemented in it.
+This is a Cordova application that Najva_cordova_plugin implemented in it.
 
 ### Test Najva Service in Cordova
 If you want test Najva Push Notification Service in ionic application you should:
