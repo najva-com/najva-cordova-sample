@@ -34,7 +34,7 @@ var app = {
             console.log("najva_init failed");
         });
         window.najva.handleUsers(function(token) 
-        { console.log("app token is: " + token); });
+        { console.log("app token js: " + token); });
     },
 
     // Update DOM on a Received Event
