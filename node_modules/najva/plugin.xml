@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="najva" version="1.0.14" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin id="najva" version="1.2.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>najva</name>
 
     <description>Najva plugin for cordova</description>
@@ -21,27 +21,16 @@
             </feature>
         </config-file>
 
-        <framework src="src/android/build-najva.gradle" custom="true" type="gradleReference" />
-
-        <config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <service
-                    android:name="com.najva.najvasdk.Service.NajvaMessagingService">
-                <intent-filter>
-                    <action android:name="com.google.firebase.MESSAGING_EVENT"/>
-                </intent-filter>
-            </service>
-        </config-file>
+        <framework src="com.najva.sdk:najva-android-sdk:1.2.0" />
 
         <source-file src="src/android/najva.java" target-dir="src/com/najva/cordovaplugin"/>
         <source-file src="src/android/CordovaHandler.java" target-dir="src/com/najva/cordovaplugin"/>
         <source-file src="src/android/callbacks/JSONNotificationCallback.java"
                      target-dir="src/com/najva/cordovaplugin/callbacks"/>
+
         <source-file src="src/android//callbacks/UserHandlingCallback.java"
                      target-dir="src/com/najva/cordovaplugin/callbacks"/>
         <source-file src="src/android/userhandler/CordovaUserHandler.java"
                      target-dir="src/com/najva/cordovaplugin/userhandler"/>
-
-        <resource-file src="libs/najva-android-sdk-1.0.6.aar" target="libs/najva-android-sdk-1.0.6.aar" />
-
     </platform>
 </plugin>

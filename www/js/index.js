@@ -28,6 +28,13 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
+        window.najva.init(function(success){
+            console.log("najva_init successful");
+        },function(error){
+            console.log("najva_init failed");
+        });
+        window.najva.handleUsers(function(token) 
+        { console.log("app token js: " + token); });
     },
 
     // Update DOM on a Received Event

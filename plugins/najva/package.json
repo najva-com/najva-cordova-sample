@@ -1,17 +1,17 @@
 {
-  "_from": "najva",
-  "_id": "najva@1.0.14",
+  "_from": "najva@latest",
+  "_id": "najva@1.2.0",
   "_inBundle": false,
-  "_integrity": "sha512-mIeji+7gwt/2zD2lXZRvGWo2I2xiKeAFFTGddzsuMv7TUmfENSYw/zLyFJSEZbCjvA21JQeHRXDfV61Om8KiTg==",
+  "_integrity": "sha512-8T3nv9MiTnErLRxHgdkEv6mvC0AqAkWq+hZ6wrvOUPo+7nXece5FPaAH0HlDUxlTvkhUDnuZgbL09jHGmun1tA==",
   "_location": "/najva",
   "_phantomChildren": {},
   "_requested": {
     "type": "tag",
     "registry": true,
-    "raw": "najva",
+    "raw": "najva@latest",
     "name": "najva",
     "escapedName": "najva",
-    "rawSpec": "",
+    "rawSpec": "latest",
     "saveSpec": null,
     "fetchSpec": "latest"
   },
@@ -19,10 +19,10 @@
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/najva/-/najva-1.0.14.tgz",
-  "_shasum": "01f4c6fe3773719dfa2fd05d9e9b9f6601e77811",
-  "_spec": "najva",
-  "_where": "/home/shayan/Najva/cordova/sample",
+  "_resolved": "https://registry.npmjs.org/najva/-/najva-1.2.0.tgz",
+  "_shasum": "eabb42a5fca12e09a8f105d2a37dbfd91268646e",
+  "_spec": "najva@latest",
+  "_where": "/home/najva/workspace/cordova project/najva-cordova-sam",
   "author": {
     "name": "yektanet"
   },
@@ -34,12 +34,12 @@
     ]
   },
   "deprecated": false,
-  "description": "Plugin for using najvaSDK in cordova (just for android).",
+  "description": "Plugin for using najvaSDK in cordova (just for android) version 1.2.0",
   "keywords": [
     "ecosystem:cordova",
     "cordova-android"
   ],
   "license": "MIT License (MIT)",
   "name": "najva",
-  "version": "1.0.14"
+  "version": "1.2.0"
 }

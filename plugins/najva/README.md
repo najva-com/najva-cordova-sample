@@ -8,13 +8,13 @@ Use command bellow to add plugin to your project
 ```
 cd your/project/path
 
-cordova plugin add najva@1.0.2
+cordova plugin add najva@latest
 ```
 
 after that in your `index.js` file inside the device ready function add code bellow
 
 ```
-window.najva.init(successCallback,errorCallback,champaignId,websiteId,apikey,enableLocation);
+window.najva.init(successCallback,errorCallback);
 ```
 
 ## Receive json notifications
