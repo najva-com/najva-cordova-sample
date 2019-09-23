@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.najva.cordovaappsample;
+package io.cordova.cordovaNajva;
 
 import android.os.Bundle;
 import org.apache.cordova.*;

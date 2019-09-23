@@ -2,9 +2,9 @@ package com.najva.cordovaplugin.userhandler;
 
 import com.najva.cordovaplugin.callbacks.UserHandlingCallback;
 
-import com.najva.najvasdk.Class.NajvaUserHandler;
+import com.najva.sdk.UserSubscriptionListener;
 
-public class CordovaUserHandler extends NajvaUserHandler {
+public class CordovaUserHandler implements UserSubscriptionListener {
     private UserHandlingCallback callback;
 
     public CordovaUserHandler(UserHandlingCallback callback) {
@@ -12,7 +12,7 @@ public class CordovaUserHandler extends NajvaUserHandler {
     }
 
     @Override
-    public void najvaUserSubscribed(String token) {
+    public void onUserSubscribed(String token) {
         if (callback != null)
             callback.onNewUserSubscribed(token);
     }

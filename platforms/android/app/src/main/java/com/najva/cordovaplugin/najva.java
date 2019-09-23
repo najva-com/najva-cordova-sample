@@ -10,6 +10,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+
 import com.najva.cordovaplugin.CordovaHandler;
 import com.najva.cordovaplugin.callbacks.JSONNotificationCallback;
 import com.najva.cordovaplugin.callbacks.UserHandlingCallback;
@@ -20,6 +25,9 @@ import com.najva.cordovaplugin.callbacks.UserHandlingCallback;
 public class najva extends CordovaPlugin {
 
     CordovaHandler handler;
+    CallbackContext jsonCallback;
+    CallbackContext userCallback;
+    CallbackContext notificationReceiverCallback;
 
     JSONNotificationCallback jsonlistener = new JSONNotificationCallback() {
         @Override
@@ -39,26 +47,29 @@ public class najva extends CordovaPlugin {
         }
     };
 
+    BroadcastReceiver notificationReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            android.util.Log.i("najva", "onReceive: " + intent.getStringExtra("message_id"));
+
+            if (notificationReceiverCallback != null) {
+                notificationReceiverCallback.success(intent.getStringExtra("message_id"));
+            }
+        }
+    };
+
     @Override
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         //and call your method
         handler = new CordovaHandler(cordova.getActivity());
     }
 
-    CallbackContext jsonCallback;
-    CallbackContext userCallback;
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("init")) {
-            int campaignId = args.getInt(0);
-            int websiteId = args.getInt(1);
-            String apiKey = args.getString(2);
-            if (apiKey == null || apiKey.equals("")) {
-                callbackContext.error("api key cannot be null or empty");
-                return false;
-            }
-            init(campaignId, websiteId, apiKey);
+            init();
+            callbackContext.success();
             return true;
         } else if (action.equals("receiveJSONNotification")) {
             receiveJSONData(callbackContext);
@@ -66,11 +77,21 @@ public class najva extends CordovaPlugin {
         } else if (action.equals("handleUsers")) {
             handleUsers(callbackContext);
             return true;
-        } else if(action.equals("getSubscribedToken")){
-	    callbackContext.success(handler.getToken());
-	    return true;
-	}
+        } else if (action.equals("getSubscribedToken")) {
+            callbackContext.success(handler.getToken());
+            return true;
+        } else if (action.equals("notificationReceiver")) {
+            notifaicationReceiver(callbackContext);
+            return true;
+        }
         return false;
+    }
+
+    private void notifaicationReceiver(CallbackContext context) {
+        notificationReceiverCallback = context;
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("com.najva.sdk.Najva.ACTION_NOTIFICATION_RECEIVED");
+        cordova.getActivity().getApplicationContext().registerReceiver(notificationReceiver, filter);
     }
 
     private void handleUsers(CallbackContext context) {
@@ -83,8 +104,9 @@ public class najva extends CordovaPlugin {
         handler.initJSONNotification(jsonlistener);
     }
 
-    private void init(int campaignId, int websiteId, String apiKey) {
-        handler.init(campaignId, websiteId, apiKey);
+    private void init() {
+        handler.init();
     }
 
 }
+

@@ -28,9 +28,21 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
-	window.najva.init(function(success) { } , function(error) { },1247751,6082,"d4223041-fbc7-4b35-8d5f-0cc9619e07d3",true);
-	window.najva.handleUsers(function(token) { console.log("app token is: " + token); });
-	window.najva.getSubscribedToken(function(token) { console.log("token is: " + token); } )
+	
+        window.najva.init(function(success){
+            console.log("najva_init successful");
+        },function(error){
+            console.log("najva_init failed");
+        });
+        window.najva.handleUsers(function(token) 
+        { 
+            console.log("app token js: " + token); 
+            
+        });
+        window.najva.receiveJSONNotification(function (json) {
+            console.log("app json js: " + json);
+        }
+        );
     },
 
     // Update DOM on a Received Event

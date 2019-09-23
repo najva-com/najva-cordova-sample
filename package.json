@@ -13,11 +13,13 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "dependencies": {
-    "cordova-android": "^8.0.0"
+    "cordova-android": "^8.1.0",
+    "najva": "^1.2.1"
   },
   "cordova": {
     "plugins": {
-      "cordova-plugin-whitelist": {}
+      "cordova-plugin-whitelist": {},
+      "najva": {}
     },
     "platforms": [
       "android"

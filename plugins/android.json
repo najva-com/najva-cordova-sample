@@ -8,12 +8,11 @@
   },
   "installed_plugins": {
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.najva.cordovaappsample"
+      "PACKAGE_NAME": "io.cordova.cordovaNajva"
+    },
+    "najva": {
+      "PACKAGE_NAME": "io.cordova.cordovaNajva"
     }
   },
-  "dependent_plugins": {
-    "najva": {
-      "PACKAGE_NAME": "com.najva.cordovaappsample"
-    }
-  }
+  "dependent_plugins": {}
 }

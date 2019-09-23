@@ -5,14 +5,10 @@ var najva =  {};
 /**
  * initialize najva for receiving notifications
  * @param onSuccess callback response for when success'es
- * @param onError call back response for whed error happens.
- * @param campaignId your champaginId
- * @param websiteId your websiteId
- * @param apiKey your apiKey
- * @param locationEnabled set true if you want to receive location based improvements
+ * @param onError callback response for when error happens.
  */
-najva.init = function (onSuccess,onError,campaignId, websiteId, apiKey, locationEnabled) {
-    exec(onSuccess,onError,'najva','init',[campaignId,websiteId,apiKey,locationEnabled]);
+najva.init = function (onSuccess,onError) {
+    exec(onSuccess,onError,'najva','init',[]);
 };
 
 /**
@@ -37,10 +33,16 @@ najva.handleUsers = function (callback) {
 };
 
 najva.getSubscribedToken = function(callback) {
-    exec(callback,function (error) {
-        //error
-    },'najva','getSubscribedToken',[]);
-}
+	exec(callback,function (error) {
+	//error
+		},'najva','getSubscribedToken',[]);
+};
+
+najva.notificationReceiver = function(callback){
+    exec(callback,function (error){
+    console.log("broadcast receiver failed")
+    }, 'najva','notificationReceiver',[]);
+};
 
 module.exports = najva;
 

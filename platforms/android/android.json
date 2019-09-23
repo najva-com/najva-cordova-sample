@@ -5,6 +5,22 @@
   },
   "config_munge": {
     "files": {
+      "AndroidManifest.xml": {
+        "parents": {
+          "/manifest/application": [
+            {
+              "xml": "<meta-data android:name=\"com.najva.sdk.metadata.API_KEY\" android:value=\"adf079f2-8a28-4fa7-b702-e3e341c4abef\" />",
+              "count": 1,
+              "id": "config.xml"
+            },
+            {
+              "xml": "<meta-data android:name=\"com.najva.sdk.metadata.WEBSITE_ID\" android:value=\"7258\" />",
+              "count": 1,
+              "id": "config.xml"
+            }
+          ]
+        }
+      },
       "res/xml/config.xml": {
         "parents": {
           "/*": [
@@ -29,10 +45,10 @@
   },
   "installed_plugins": {
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.najva.cordovaappsample"
+      "PACKAGE_NAME": "io.cordova.cordovaNajva"
     },
     "najva": {
-      "PACKAGE_NAME": "com.najva.cordovaappsample"
+      "PACKAGE_NAME": "io.cordova.cordovaNajva"
     }
   },
   "dependent_plugins": {},
@@ -48,6 +64,6 @@
   ],
   "plugin_metadata": {
     "cordova-plugin-whitelist": "1.3.4",
-    "najva": "1.1.4"
+    "najva": "1.2.0"
   }
 }
