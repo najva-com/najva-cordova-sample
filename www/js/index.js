@@ -28,6 +28,9 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
+
+        window.najva.disableLocation()
+
         window.najva.init(function(success){
             console.log("najva_init successful");
         },function(error){

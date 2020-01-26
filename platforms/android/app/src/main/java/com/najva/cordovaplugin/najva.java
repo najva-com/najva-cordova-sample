@@ -83,6 +83,8 @@ public class najva extends CordovaPlugin {
         } else if (action.equals("notificationReceiver")) {
             notifaicationReceiver(callbackContext);
             return true;
+        } else if (action.equals("disableLocation")){
+            handler.disableLocation();
         }
         return false;
     }

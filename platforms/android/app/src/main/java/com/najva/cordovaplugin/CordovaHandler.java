@@ -2,57 +2,70 @@ package com.najva.cordovaplugin;
 
 import android.content.Context;
 import android.content.IntentFilter;
+import android.app.Activity;
 
 import com.najva.cordovaplugin.callbacks.JSONNotificationCallback;
 import com.najva.cordovaplugin.callbacks.UserHandlingCallback;
 import com.najva.cordovaplugin.userhandler.CordovaUserHandler;
 
 import com.najva.sdk.Najva;
+import com.najva.sdk.NajvaClient;
+import com.najva.sdk.NajvaConfiguration;
 import com.najva.sdk.NajvaJsonDataListener;
 import com.najva.sdk.UserSubscriptionListener;
 
 
 public class CordovaHandler {
-    private Context context;
+    private Activity context;
 
     private JSONNotificationCallback jsonCallback;
     private UserHandlingCallback userHandlingCallback;
+    private NajvaClient client;
+    private NajvaConfiguration config;
 
-    public CordovaHandler(Context context) {
+    public CordovaHandler(Activity context) {
         this.context = context;
     }
 
     public void init() {
-        Najva.initialize(context);
+        client = new NajvaClient(context.getApplicationContext());
+
+        config = new NajvaConfiguration();
+
+        config.setNajvaJsonDataListener(new NajvaJsonDataListener() {
+            @Override
+            public void onReceiveJson(String jsonString) {
+                if (jsonCallback != null)
+                    jsonCallback.onNewNotification(jsonString);
+            }
+        });
+
+        config.setUserSubscriptionListener(new UserSubscriptionListener() {
+            @Override
+            public void onUserSubscribed(String token) {
+                if (userHandlingCallback != null)
+                    userHandlingCallback.onNewUserSubscribed(token);
+            }
+        });
+
+        context.getApplication().registerActivityLifecycleCallbacks(client);
+
+        client.getCachedJsonData();
     }
 
     public void handleUsers(UserHandlingCallback callback) {
         this.userHandlingCallback = callback;
-        CordovaUserHandler handler = new CordovaUserHandler(userHandlingCallback);
-        Najva.setUserSubscriptionListener(handler);
-    }
-
-    public void unHandleUsers() {
-        this.userHandlingCallback = null;
-        Najva.setUserSubscriptionListener(null);
     }
 
     public void initJSONNotification(final JSONNotificationCallback callback) {
-	Najva.setNajvaJsonDataListener(new NajvaJsonDataListener() {
-		@Override
-		public void onReceiveJson(String jsonString){
-			callback.onNewNotification(jsonString);
-		}
-	});
-	Najva.getCachedJsonData(context);
+        this.jsonCallback = callback;
     }
 
-    public void dontHandleJSONNotification() {
-        Najva.setNajvaJsonDataListener(null);
+    public String getToken() {
+        return client.getSubscribedToken();
     }
 
-    public String getToken(){
-	if(context==null) return null;
-	    return Najva.getSubscribedToken(context);
+    public void disableLocation(){
+        config.disableLocation();
     }
 }

@@ -293,7 +293,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: '*.jar')
     // SUB-PROJECT DEPENDENCIES START
     implementation(project(path: ":CordovaLib"))
-    implementation "com.najva.sdk:najva-android-sdk:1.2.0"
+    implementation "com.najva.sdk:najva-android-sdk:1.2.3"
     // SUB-PROJECT DEPENDENCIES END
 }
 

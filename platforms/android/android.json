@@ -10,13 +10,11 @@
           "/manifest/application": [
             {
               "xml": "<meta-data android:name=\"com.najva.sdk.metadata.API_KEY\" android:value=\"adf079f2-8a28-4fa7-b702-e3e341c4abef\" />",
-              "count": 1,
-              "id": "config.xml"
+              "count": 3
             },
             {
               "xml": "<meta-data android:name=\"com.najva.sdk.metadata.WEBSITE_ID\" android:value=\"7258\" />",
-              "count": 1,
-              "id": "config.xml"
+              "count": 3
             }
           ]
         }
