@@ -27,4 +27,11 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+    <plugin name="najva" spec="^1.2.3" />
+    <plugin name="cordova.plugins.diagnostic" spec="^5.0.1">
+        <variable name="ANDROID_SUPPORT_VERSION" value="28.+" />
+    </plugin>
+    <plugin name="cordova-plugin-androidx" spec="^1.0.2" />
+    <plugin name="cordova-plugin-androidx-adapter" spec="^1.1.0" />
+    <engine name="android" spec="^8.1.0" />
 </widget>

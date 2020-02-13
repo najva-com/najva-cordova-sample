@@ -14,12 +14,21 @@
   "license": "Apache-2.0",
   "dependencies": {
     "cordova-android": "^8.1.0",
-    "najva": "file:../najva-cordova-plugin"
+    "cordova-plugin-androidx": "^1.0.2",
+    "cordova-plugin-androidx-adapter": "^1.1.0",
+    "cordova-plugin-whitelist": "1",
+    "cordova.plugins.diagnostic": "^5.0.1",
+    "najva": "^1.2.3"
   },
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
-      "najva": {}
+      "najva": {},
+      "cordova.plugins.diagnostic": {
+        "ANDROID_SUPPORT_VERSION": "28.+"
+      },
+      "cordova-plugin-androidx": {},
+      "cordova-plugin-androidx-adapter": {}
     },
     "platforms": [
       "android"

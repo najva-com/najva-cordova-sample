@@ -43,4 +43,12 @@ najva.notificationReceiver = function(callback){
     }, 'najva','notificationReceiver',[]);
 };
 
+najva.disableLocation = function(){
+    exec(function (success){
+        //do nothing
+    }, function (error){
+        //do nothing
+    }, 'najva', 'disableLocation', []);
+}
+
 module.exports = najva;

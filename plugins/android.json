@@ -7,10 +7,20 @@
     "files": {}
   },
   "installed_plugins": {
+    "cordova-plugin-androidx": {
+      "PACKAGE_NAME": "io.cordova.cordovaNajva"
+    },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "io.cordova.cordovaNajva"
     },
+    "cordova.plugins.diagnostic": {
+      "ANDROID_SUPPORT_VERSION": "28.+",
+      "PACKAGE_NAME": "io.cordova.cordovaNajva"
+    },
     "najva": {
+      "PACKAGE_NAME": "io.cordova.cordovaNajva"
+    },
+    "cordova-plugin-androidx-adapter": {
       "PACKAGE_NAME": "io.cordova.cordovaNajva"
     }
   },

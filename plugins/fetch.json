@@ -9,8 +9,32 @@
   },
   "najva": {
     "source": {
-      "type": "local",
-      "path": "/home/shayzn/StudioProjects/najva-cordova-sample/node_modules/najva"
+      "type": "registry",
+      "id": "najva@latest"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova.plugins.diagnostic": {
+    "source": {
+      "type": "registry",
+      "id": "cordova.plugins.diagnostic@5.0.1"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-androidx": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-androidx@^1.0.2"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-androidx-adapter": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-androidx-adapter"
     },
     "is_top_level": true,
     "variables": {}

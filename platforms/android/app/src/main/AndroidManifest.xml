@@ -12,4 +12,5 @@
         <meta-data android:name="com.najva.sdk.metadata.API_KEY" android:value="adf079f2-8a28-4fa7-b702-e3e341c4abef" />
         <meta-data android:name="com.najva.sdk.metadata.WEBSITE_ID" android:value="7258" />
     </application>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
 </manifest>

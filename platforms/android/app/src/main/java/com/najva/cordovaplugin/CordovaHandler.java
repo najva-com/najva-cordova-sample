@@ -28,8 +28,6 @@ public class CordovaHandler {
     }
 
     public void init() {
-        client = new NajvaClient(context.getApplicationContext());
-
         config = new NajvaConfiguration();
 
         config.setNajvaJsonDataListener(new NajvaJsonDataListener() {
@@ -47,6 +45,7 @@ public class CordovaHandler {
                     userHandlingCallback.onNewUserSubscribed(token);
             }
         });
+        client = new NajvaClient(context.getApplicationContext(),config);
 
         context.getApplication().registerActivityLifecycleCallbacks(client);
 
