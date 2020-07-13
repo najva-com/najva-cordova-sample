@@ -18,7 +18,7 @@
     "cordova-plugin-androidx-adapter": "^1.1.0",
     "cordova-plugin-whitelist": "1",
     "cordova.plugins.diagnostic": "^5.0.1",
-    "najva": "^1.2.3"
+    "najva": "^1.2.5"
   },
   "cordova": {
     "plugins": {
