@@ -1,8 +1,8 @@
 {
   "_from": "najva@latest",
-  "_id": "najva@1.2.3",
+  "_id": "najva@1.2.8",
   "_inBundle": false,
-  "_integrity": "sha512-WvBRnkz0NyrmMmDE0JgVNf6k/w5+L/LYzN+yvZgjuPeuM8EKkfd/logOKyNzqN0l74OqIpGvMK7pJqbHOD79ng==",
+  "_integrity": "sha512-XtV1LR38KArMxvCNLHIsaVHE9g19rbg+GIhq6+gMb3fj5zmQNh+9QmNHmvWNC084j6mjZzorPj2kcwMu0/NS+A==",
   "_location": "/najva",
   "_phantomChildren": {},
   "_requested": {
@@ -19,10 +19,10 @@
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/najva/-/najva-1.2.3.tgz",
-  "_shasum": "9ac1da55543f92fc822033918dc1bf7684c56a9a",
+  "_resolved": "https://registry.npmjs.org/najva/-/najva-1.2.8.tgz",
+  "_shasum": "e78cb2f63275b55e3b4bc9065e45d8a74ba7c48c",
   "_spec": "najva@latest",
-  "_where": "/home/najva/AndroidStudioProjects/cordova/najva-cordova-sam",
+  "_where": "C:\\Users\\Shayan\\StudioProjects\\najva-cordova-sample",
   "author": {
     "name": "yektanet"
   },
@@ -34,12 +34,12 @@
     ]
   },
   "deprecated": false,
-  "description": "Plugin for using najva SDK in cordova (just for android) version 1.2.3",
+  "description": "Plugin for using najvaSDK in cordova (just for android) version 1.2.0",
   "keywords": [
     "ecosystem:cordova",
     "cordova-android"
   ],
   "license": "MIT License (MIT)",
   "name": "najva",
-  "version": "1.2.3"
+  "version": "1.2.8"
 }

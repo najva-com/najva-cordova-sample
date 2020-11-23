@@ -3,6 +3,7 @@ package com.najva.cordovaplugin;
 import android.content.Context;
 import android.content.IntentFilter;
 import android.app.Activity;
+import android.util.Log;
 
 import com.najva.cordovaplugin.callbacks.JSONNotificationCallback;
 import com.najva.cordovaplugin.callbacks.UserHandlingCallback;
@@ -13,6 +14,8 @@ import com.najva.sdk.NajvaClient;
 import com.najva.sdk.NajvaConfiguration;
 import com.najva.sdk.NajvaJsonDataListener;
 import com.najva.sdk.UserSubscriptionListener;
+import com.najva.sdk.NotificationClickListener;
+import com.najva.sdk.NotificationReceiveListener;
 
 
 public class CordovaHandler {
@@ -22,6 +25,7 @@ public class CordovaHandler {
     private UserHandlingCallback userHandlingCallback;
     private NajvaClient client;
     private NajvaConfiguration config;
+
 
     public CordovaHandler(Activity context) {
         this.context = context;
@@ -41,15 +45,23 @@ public class CordovaHandler {
         config.setUserSubscriptionListener(new UserSubscriptionListener() {
             @Override
             public void onUserSubscribed(String token) {
+                Log.d("Handler", "token: " + token);
                 if (userHandlingCallback != null)
                     userHandlingCallback.onNewUserSubscribed(token);
             }
         });
-        client = new NajvaClient(context.getApplicationContext(),config);
+
+        client = NajvaClient.getInstance(context.getApplicationContext(),config);
 
         context.getApplication().registerActivityLifecycleCallbacks(client);
+    }
 
-        client.getCachedJsonData();
+    public void setNotificationReceiver(NotificationReceiveListener listener) {
+        config.setReceiveNotificationListener(listener);
+    }
+
+    public void setNotificationClickReceiver(NotificationClickListener listener) {
+        config.setNotificationClickListener(listener);
     }
 
     public void handleUsers(UserHandlingCallback callback) {
@@ -64,7 +76,11 @@ public class CordovaHandler {
         return client.getSubscribedToken();
     }
 
-    public void disableLocation(){
-        config.disableLocation();
+    public void enableLocation() {
+        config.enableLocation();
+    }
+
+    public void enableFirebase() {
+        config.setFirebaseEnabled(true);
     }
 }

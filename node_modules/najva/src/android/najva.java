@@ -5,6 +5,7 @@ import org.apache.cordova.CordovaArgs;
 import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CallbackContext;
+import org.apache.cordova.PluginResult;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -14,10 +15,16 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.util.Log;
+
 
 import com.najva.cordovaplugin.CordovaHandler;
 import com.najva.cordovaplugin.callbacks.JSONNotificationCallback;
 import com.najva.cordovaplugin.callbacks.UserHandlingCallback;
+
+
+import com.najva.sdk.NotificationClickListener;
+import com.najva.sdk.NotificationReceiveListener;
 
 /**
  * This class echoes a string called from JavaScript.
@@ -28,6 +35,31 @@ public class najva extends CordovaPlugin {
     CallbackContext jsonCallback;
     CallbackContext userCallback;
     CallbackContext notificationReceiverCallback;
+    CallbackContext notificationClickReceiverCallback;
+
+    NotificationReceiveListener notificationReceiveListener = new NotificationReceiveListener() {
+        @Override
+        public void onReceiveNotification(String notificationId) {
+            if (notificationReceiverCallback != null) {
+                PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, notificationId);
+                pluginResult.setKeepCallback(true);
+
+                notificationReceiverCallback.sendPluginResult(pluginResult);
+            }
+        }
+    };
+
+    NotificationClickListener notificationClickReceiver = new NotificationClickListener() {
+        @Override
+        public void onClickNotification(String notificationId, int buttonId) {
+            if (notificationClickReceiverCallback != null) {
+                PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, notificationId);
+                pluginResult.setKeepCallback(true);
+
+                notificationClickReceiverCallback.sendPluginResult(pluginResult);
+            }
+        }
+    };
 
     JSONNotificationCallback jsonlistener = new JSONNotificationCallback() {
         @Override
@@ -42,18 +74,9 @@ public class najva extends CordovaPlugin {
         @Override
         public void onNewUserSubscribed(String token) {
             if (userCallback != null) {
-                userCallback.success(token);
-            }
-        }
-    };
-
-    BroadcastReceiver notificationReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            android.util.Log.i("najva", "onReceive: " + intent.getStringExtra("message_id"));
-
-            if (notificationReceiverCallback != null) {
-                notificationReceiverCallback.success(intent.getStringExtra("message_id"));
+                Log.d("Najva","sending token to user " + token);
+                PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, token);
+                userCallback.sendPluginResult(pluginResult);
             }
         }
     };
@@ -64,10 +87,10 @@ public class najva extends CordovaPlugin {
         handler = new CordovaHandler(cordova.getActivity());
     }
 
-
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("init")) {
+            Log.d("najva", "init called");
             init();
             callbackContext.success();
             return true;
@@ -81,22 +104,22 @@ public class najva extends CordovaPlugin {
             callbackContext.success(handler.getToken());
             return true;
         } else if (action.equals("notificationReceiver")) {
-            notifaicationReceiver(callbackContext);
+            notificationReceiverCallback = callbackContext;
+            handler.setNotificationReceiver(notificationReceiveListener);
             return true;
-        } else if (action.equals("disableLocation")){
-            handler.disableLocation();
+        } else if (action.equals("notificationClickReceiver")) {
+            notificationClickReceiverCallback = callbackContext;
+            handler.setNotificationClickReceiver(notificationClickReceiver);
+        } else if (action.equals("enableLocation")) {
+            handler.enableLocation();
+        } else if (action.equals("enableFirebase")) {
+            handler.enableFirebase();
         }
         return false;
     }
 
-    private void notifaicationReceiver(CallbackContext context) {
-        notificationReceiverCallback = context;
-        IntentFilter filter = new IntentFilter();
-        filter.addAction("com.najva.sdk.Najva.ACTION_NOTIFICATION_RECEIVED");
-        cordova.getActivity().getApplicationContext().registerReceiver(notificationReceiver, filter);
-    }
-
     private void handleUsers(CallbackContext context) {
+        Log.d("Najva", "handling user");
         userCallback = context;
         handler.handleUsers(usersListener);
     }

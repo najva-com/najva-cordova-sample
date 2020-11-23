@@ -7,14 +7,24 @@
     "files": {
       "AndroidManifest.xml": {
         "parents": {
-          "/manifest/application": [
+          "/manifest": [
             {
-              "xml": "<meta-data android:name=\"com.najva.sdk.metadata.API_KEY\" android:value=\"adf079f2-8a28-4fa7-b702-e3e341c4abef\" />",
-              "count": 4
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
+              "count": 9
             },
             {
-              "xml": "<meta-data android:name=\"com.najva.sdk.metadata.WEBSITE_ID\" android:value=\"7258\" />",
-              "count": 4
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
+              "count": 9
+            }
+          ],
+          "/manifest/application": [
+            {
+              "xml": "<meta-data android:name=\"com.najva.sdk.metadata.API_KEY\" android:value=\"aa76de62-47ef-48d0-a109-7e9714eff96f\" />",
+              "count": 9
+            },
+            {
+              "xml": "<meta-data android:name=\"com.najva.sdk.metadata.WEBSITE_ID\" android:value=\"15184\" />",
+              "count": 9
             }
           ],
           "/*": [
@@ -83,6 +93,9 @@
     "cordova-plugin-androidx": {
       "PACKAGE_NAME": "io.cordova.cordovaNajva"
     },
+    "cordova-plugin-androidx-adapter": {
+      "PACKAGE_NAME": "io.cordova.cordovaNajva"
+    },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "io.cordova.cordovaNajva"
     },
@@ -91,9 +104,6 @@
       "PACKAGE_NAME": "io.cordova.cordovaNajva"
     },
     "najva": {
-      "PACKAGE_NAME": "io.cordova.cordovaNajva"
-    },
-    "cordova-plugin-androidx-adapter": {
       "PACKAGE_NAME": "io.cordova.cordovaNajva"
     }
   },
@@ -198,9 +208,9 @@
   ],
   "plugin_metadata": {
     "cordova-plugin-androidx": "1.0.2",
+    "cordova-plugin-androidx-adapter": "1.1.0",
     "cordova-plugin-whitelist": "1.3.4",
     "cordova.plugins.diagnostic": "5.0.1",
-    "najva": "1.2.3",
-    "cordova-plugin-androidx-adapter": "1.1.0"
+    "najva": "1.2.0"
   }
 }

@@ -55,9 +55,13 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <allow-intent href="market:*" />
+    <config-file parent="/manifest" target="AndroidManifest.xml">
+        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    </config-file>
     <config-file parent="/manifest/application" target="AndroidManifest.xml">
-        <meta-data android:name="com.najva.sdk.metadata.API_KEY" android:value="adf079f2-8a28-4fa7-b702-e3e341c4abef" />
-        <meta-data android:name="com.najva.sdk.metadata.WEBSITE_ID" android:value="7258" />
+        <meta-data android:name="com.najva.sdk.metadata.API_KEY" android:value="aa76de62-47ef-48d0-a109-7e9714eff96f" />
+        <meta-data android:name="com.najva.sdk.metadata.WEBSITE_ID" android:value="15184" />
     </config-file>
     <preference name="loglevel" value="DEBUG" />
 </widget>

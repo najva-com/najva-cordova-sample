@@ -99,9 +99,9 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
   ];
   module.exports.metadata = {
     "cordova-plugin-androidx": "1.0.2",
+    "cordova-plugin-androidx-adapter": "1.1.0",
     "cordova-plugin-whitelist": "1.3.4",
     "cordova.plugins.diagnostic": "5.0.1",
-    "najva": "1.2.3",
-    "cordova-plugin-androidx-adapter": "1.1.0"
+    "najva": "1.2.0"
   };
 });

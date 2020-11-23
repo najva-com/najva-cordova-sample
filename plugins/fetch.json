@@ -7,14 +7,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "najva": {
-    "source": {
-      "type": "registry",
-      "id": "najva@latest"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova.plugins.diagnostic": {
     "source": {
       "type": "registry",
@@ -35,6 +27,14 @@
     "source": {
       "type": "registry",
       "id": "cordova-plugin-androidx-adapter"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "najva": {
+    "source": {
+      "type": "registry",
+      "id": "najva@latest"
     },
     "is_top_level": true,
     "variables": {}

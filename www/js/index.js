@@ -40,12 +40,12 @@ var app = {
         window.najva.handleUsers(function(token)
         { console.log("app token js: " + token); });
 
-        window.najva.notificationReceiver(function(id){
-            console.log(id);
-        });
-        window.najva.notificationClickReceiver(function(id){
-            console.log(id);
-        });
+//        window.najva.notificationReceiver(function(id){
+//            console.log(id);
+//        });
+//        window.najva.notificationClickReceiver(function(id){
+//            console.log(id);
+//        });
     },
 
     // Update DOM on a Received Event

@@ -29,15 +29,23 @@ var app = {
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
 
-        window.najva.disableLocation()
+        window.najva.enableLocation();
 
         window.najva.init(function(success){
             console.log("najva_init successful");
         },function(error){
             console.log("najva_init failed");
         });
-        window.najva.handleUsers(function(token) 
+
+        window.najva.handleUsers(function(token)
         { console.log("app token js: " + token); });
+
+//        window.najva.notificationReceiver(function(id){
+//            console.log(id);
+//        });
+//        window.najva.notificationClickReceiver(function(id){
+//            console.log(id);
+//        });
     },
 
     // Update DOM on a Received Event

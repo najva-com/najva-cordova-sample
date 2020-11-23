@@ -10,6 +10,9 @@
     "cordova-plugin-androidx": {
       "PACKAGE_NAME": "io.cordova.cordovaNajva"
     },
+    "cordova-plugin-androidx-adapter": {
+      "PACKAGE_NAME": "io.cordova.cordovaNajva"
+    },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "io.cordova.cordovaNajva"
     },
@@ -18,9 +21,6 @@
       "PACKAGE_NAME": "io.cordova.cordovaNajva"
     },
     "najva": {
-      "PACKAGE_NAME": "io.cordova.cordovaNajva"
-    },
-    "cordova-plugin-androidx-adapter": {
       "PACKAGE_NAME": "io.cordova.cordovaNajva"
     }
   },
